@@ -17,6 +17,7 @@ public class SecurityConfig {
   private static final String AUTH_LOGIN_PATH = "/api/auth/login";
   private static final String USERS_PATH = "/api/users";
   private static final String USERS_DETAIL_PATH = "/api/users/**";
+  private static final String H2_CONSOLE_PATH = "/h2-console/**";
   private static final String[] OPEN_API_PATHS = {
     "/swagger-ui/**", "/swagger-ui.html", "/v3/api-docs/**"
   };
@@ -31,6 +32,8 @@ public class SecurityConfig {
     http.csrf(AbstractHttpConfigurer::disable)
         .httpBasic(AbstractHttpConfigurer::disable)
         .formLogin(AbstractHttpConfigurer::disable)
+        // Permite renderizar los frames HTML de la consola de H2
+        .headers(headers -> headers.frameOptions(frame -> frame.disable()))
         .sessionManagement(
             session -> session.sessionCreationPolicy(SessionCreationPolicy.STATELESS))
         .exceptionHandling(
@@ -46,6 +49,8 @@ public class SecurityConfig {
                     .requestMatchers(AUTH_LOGIN_PATH)
                     .permitAll()
                     .requestMatchers(OPEN_API_PATHS)
+                    .permitAll()
+                    .requestMatchers(H2_CONSOLE_PATH)
                     .permitAll()
                     .requestMatchers(HttpMethod.POST, USERS_PATH)
                     .permitAll()

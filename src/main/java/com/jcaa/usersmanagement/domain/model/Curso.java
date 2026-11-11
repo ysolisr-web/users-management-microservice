@@ -1,62 +1,85 @@
 package com.jcaa.usersmanagement.domain.model;
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
-import jakarta.persistence.Id;
-import jakarta.persistence.Table;
+import java.time.LocalDate;
 
-@Entity
-@Table(name = "cursos")
 public class Curso {
 
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
-
     private String nombre;
+    private Double precio;
+    private Integer horas;
+    private String nivel;
+    private String profesor;
+    private String institucion;
+    private LocalDate fechaInscripcionInicio;
+    private LocalDate fechaInscripcionFin;
+    private LocalDate fechaInicio;
+    private LocalDate fechaCierre;
+    private Integer numAlumnos;
+    private String modalidad;
     private String descripcion;
-    private Integer duracionHoras;
 
-    public Curso() {
-    }
+    public Curso() {}
 
-    public Curso(String nombre, String descripcion, Integer duracionHoras) {
+    public Curso(Long id, String nombre, Double precio, Integer horas, String nivel, String profesor,
+                 String institucion, LocalDate fechaInscripcionInicio, LocalDate fechaInscripcionFin,
+                 LocalDate fechaInicio, LocalDate fechaCierre, Integer numAlumnos, String modalidad, String descripcion) {
+        this.id = id;
         this.nombre = nombre;
+        this.precio = precio;
+        this.horas = horas;
+        this.nivel = nivel;
+        this.profesor = profesor;
+        this.institucion = institucion;
+        this.fechaInscripcionInicio = fechaInscripcionInicio;
+        this.fechaInscripcionFin = fechaInscripcionFin;
+        this.fechaInicio = fechaInicio;
+        this.fechaCierre = fechaCierre;
+        this.numAlumnos = numAlumnos;
+        this.modalidad = modalidad;
         this.descripcion = descripcion;
-        this.duracionHoras = duracionHoras;
     }
 
     // Getters y Setters
-    public Long getId() {
-        return id;
-    }
+    public Long getId() { return id; }
+    public void setId(Long id) { this.id = id; }
 
-    public void setId(Long id) {
-        this.id = id;
-    }
+    public String getNombre() { return nombre; }
+    public void setNombre(String nombre) { this.nombre = nombre; }
 
-    public String getNombre() {
-        return nombre;
-    }
+    public Double getPrecio() { return precio; }
+    public void setPrecio(Double precio) { this.precio = precio; }
 
-    public void setNombre(String nombre) {
-        this.nombre = nombre;
-    }
+    public Integer getHoras() { return horas; }
+    public void setHoras(Integer horas) { this.horas = horas; }
 
-    public String getDescripcion() {
-        return descripcion;
-    }
+    public String getNivel() { return nivel; }
+    public void setNivel(String nivel) { this.nivel = nivel; }
 
-    public void setDescripcion(String descripcion) {
-        this.descripcion = descripcion;
-    }
+    public String getProfesor() { return profesor; }
+    public void setProfesor(String profesor) { this.profesor = profesor; }
 
-    public Integer getDuracionHoras() {
-        return duracionHoras;
-    }
+    public String getInstitucion() { return institucion; }
+    public void setInstitucion(String institucion) { this.institucion = institucion; }
 
-    public void setDuracionHoras(Integer duracionHoras) {
-        this.duracionHoras = duracionHoras;
-    }
+    public LocalDate getFechaInscripcionInicio() { return fechaInscripcionInicio; }
+    public void setFechaInscripcionInicio(LocalDate fechaInscripcionInicio) { this.fechaInscripcionInicio = fechaInscripcionInicio; }
+
+    public LocalDate getFechaInscripcionFin() { return fechaInscripcionFin; }
+    public void setFechaInscripcionFin(LocalDate fechaInscripcionFin) { this.fechaInscripcionFin = fechaInscripcionFin; }
+
+    public LocalDate getFechaInicio() { return fechaInicio; }
+    public void setFechaInicio(LocalDate fechaInicio) { this.fechaInicio = fechaInicio; }
+
+    public LocalDate getFechaCierre() { return fechaCierre; }
+    public void setFechaCierre(LocalDate fechaCierre) { this.fechaCierre = fechaCierre; }
+
+    public Integer getNumAlumnos() { return numAlumnos; }
+    public void setNumAlumnos(Integer numAlumnos) { this.numAlumnos = numAlumnos; }
+
+    public String getModalidad() { return modalidad; }
+    public void setModalidad(String modalidad) { this.modalidad = modalidad; }
+
+    public String getDescripcion() { return descripcion; }
+    public void setDescripcion(String descripcion) { this.descripcion = descripcion; }
 }

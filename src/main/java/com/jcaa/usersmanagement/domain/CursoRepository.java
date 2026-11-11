@@ -1,9 +1,12 @@
 package com.jcaa.usersmanagement.domain;
 
 import com.jcaa.usersmanagement.domain.model.Curso;
-import org.springframework.data.jpa.repository.JpaRepository;
-import org.springframework.stereotype.Repository;
+import java.util.List;
+import java.util.Optional;
 
-@Repository
-public interface CursoRepository extends JpaRepository<Curso, Long> {
+public interface CursoRepository {
+    Curso save(Curso curso);
+    Optional<Curso> findById(Long id);
+    List<Curso> findAll();
+    void deleteById(Long id);
 }
